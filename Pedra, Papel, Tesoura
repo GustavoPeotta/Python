@@ -1,0 +1,37 @@
+from random import randint
+
+# Lista de Opções
+t = ["Pedra", "Papel", "Tesoura"]
+
+# Atribui valor randomico
+computer = t[randint(0, 2)]
+
+# Valor falso para Player
+player = False
+
+while not player:
+    # Checa se o valor de entrada é uma opção válida
+    player = input("Pedra, Papel, Tesoura?")
+    if player == computer:
+        print("Empate!")
+    elif player == "Pedra":
+        if computer == "Papel":
+            print("Você perdeu!", computer, "cobre", player)
+        else:
+            print("Você venceu!", player, "esmaga", computer)
+    elif player == "Papel":
+        if computer == "Tesoura":
+            print("Você perdeu!", computer, "corta", player)
+        else:
+            print("Você venceu!", player, "cobre", computer)
+    elif player == "Tesoura":
+        if computer == "Pedra":
+            print("Você perdeu...", computer, "esmaga", player)
+        else:
+            print("Você venceu!", player, "corta", computer)
+    else:
+        print("Esta não é uma jogada válida. Cheque sua escrita!")
+    
+    # Valor falso para o loop continuar
+    player = False
+    computer = t[randint(0, 2)]
